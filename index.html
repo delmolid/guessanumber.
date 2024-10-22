@@ -11,22 +11,30 @@
 function addnumber (choosenumber = prompt("Choose number please")){
   return choosenumber
 }
-const givenNumber = addnumber();
+let givenNumber = addnumber();
 
 function didIWin (givenNumber){ 
   if(givenNumber == 22){
-    alert("Bravo ! Vous avez deviné le nombre");
+    alert(true);
+    return true;
   } else if (givenNumber > 22) {
     alert("Plus grand");
-  } if (givenNumber < 22){
+    return false;
+  } else if (givenNumber < 22){
     alert("Plus petit");
-  }}   
- 
-function gamePlay(){
-    didIWin(givenNumber);
+    return false;
+  }
+}   
+function gamePlay() {
+    let result = false;
+    let givenNumber;
+    while(!result) { 
+    givenNumber=addnumber();
+    result = didIWin(givenNumber);
+}
 }
 gamePlay();
 
 </script>   
 </body>
-</html>
+</html> 
