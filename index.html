@@ -9,32 +9,38 @@
 <script>
 
 function addnumber (choosenumber = prompt("Choose number please")){
-  return choosenumber
+  return parseInt(choosenumber)
 }
-let givenNumber = addnumber();
 
-function didIWin (givenNumber){ 
-  if(givenNumber == 22){
-    alert(true);
-    return true;
-  } else if (givenNumber > 22) {
-    alert("Plus grand");
-    return false;
-  } else if (givenNumber < 22){
-    alert("Plus petit");
-    return false;
+function didIWin (givennumber, guessnumber = prompt("Deviner un nombre")){  
+  if(0 <= guessnumber && guessnumber <= 50){
+    //alert("true");
+    return true
+  } else { 
+          // alert("false")
+          return false
   }
-}   
-function gamePlay() {
-    let result = false;
-    let givenNumber;
-    while(!result) { 
-    givenNumber=addnumber();
-    result = didIWin(givenNumber);  
-}
-}
-gamePlay();
+}  
+ // didIWin(guessnumber);
 
+function gamePlay(){
+    if(didIWin(addnumber()) == true){
+         alert("Fin de jeu") 
+}   else {
+         gamePlay()
+}
+}
+
+//  gamePlay();
+
+function askplayer(guessnumber) {
+  if (didIWin(guessnumber) == true){
+      alert("vous avez gagné")
+  } else { 
+   askplayer()
+}
+}
+askplayer();
 </script>   
 </body>
 </html> 
