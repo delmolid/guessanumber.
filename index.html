@@ -7,21 +7,22 @@
 </head>
 <body>
 <script>
-
 function addnumber (choosenumber = prompt("Choose number please")){
   return parseInt(choosenumber)
 }
-
-function didIWin (givennumber, guessnumber = prompt("Deviner un nombre")){  
-  if(0 <= guessnumber && guessnumber <= 50){
-    //alert("true");
-    return true
-  } else { 
-          // alert("false")
-          return false
+function didIWin (givenNumber){ 
+  if(givenNumber == 22){
+    alert(true);
+    return true;
+  } else if (givenNumber > 22) {
+    alert("Plus grand");
+    return false;
+  } else if (givenNumber < 22){
+    alert("Plus petit");
+    return false;
   }
-}  
- // didIWin(guessnumber);
+}
+// didIWin();
 
 function gamePlay(){
     if(didIWin(addnumber()) == true){
@@ -30,17 +31,56 @@ function gamePlay(){
          gamePlay()
 }
 }
+// gamePlay();
 
-//  gamePlay();
-
-function askplayer(guessnumber) {
-  if (didIWin(guessnumber) == true){
-      alert("vous avez gagné")
+function VerifierValiditeDuNombre (){  
+  let guessnumber = addnumber();
+  if(0 <= guessnumber && guessnumber <= 50){
+    alert("true");
+    console.log("verifié ok");
+    return true
   } else { 
-   askplayer()
-}
-}
-askplayer();
+          alert("false")
+          console.log("NC");
+        return false
+  }
+}  
+VerifierValiditeDuNombre();
+
+ function didIWin3 () {
+ let chiffregagnant = addnumber();
+   let nombrejoueur2 = prompt("Joueur 2 : Deviner un nombre");
+   nombrejoueur2devine = parseInt(nombrejoueur2);
+     if (chiffregagnant == nombrejoueur2devine) {
+           alert("Super tu as gagné")
+            console.log("Super tu as gagné");
+           return true
+     } else {
+          alert("Recommencer")
+            console.log("Recommencer");
+           return false
+     }
+  } 
+  // didIWin3();
+
+function game(nombrejoueur2, chiffregagnant) {
+while(didIWin3() == false ) {
+nombrejoueur2 =  addnumber();
+ alert("Recommencer");
+ console.log("Recommnercer svp")
+ }
+ alert("Fin de jeu,vous avez gagné")
+ console.log("Fin de jeu")
+ }
+game();
+
+  // if (didIWin2(guessnumber) == true){
+   //    alert("vous avez gagné")
+  // } else { 
+//   askplayer()
+//}
+//}
+// askplayer(); 
 </script>   
 </body>
-</html> 
+</html>
