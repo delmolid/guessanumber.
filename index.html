@@ -53,31 +53,30 @@ function gamePlay(){
  // VerifierValiditeDuNombre();
 
  function didIWin3 () {
-    let chiffregagnant = addnumber();
+    let nombreDevinerParLeJoueur1 = addnumber();
     let nombrejoueur2 = prompt("Joueur 2 : Deviner un nombre");
-    nombrejoueur2devine = parseInt(nombrejoueur2);
-    if (chiffregagnant == nombrejoueur2devine) {
-           // alert("Super tu as gagné")
-            console.log("Super tu as gagné");
+    NombreDevinerParLeJoueur2 = parseInt(nombrejoueur2);
+    if (nombreDevinerParLeJoueur1 == NombreDevinerParLeJoueur2) {
             return true
      } else {
-            console.log("Recommencer");
            return false
      }
   } 
-// didIWin3();
+ // didIWin3();
 
 function game() {
   while(didIWin3() == false ) {
-  alert("Recommencer");
+  alert("Oups!!! Recommencer à nouveau");
  console.log("Recommnercer")
-
+ 
  }
  alert("BRAVO tu as gagné")
  console.log("Fin de jeu");
 
  }
  game(); 
+
+ 
 
 </script>   
 </body>
