@@ -7,13 +7,15 @@
 </head>
 <body>
 <script>
-function addnumber (choosenumber = prompt("Playeur 1 : Deviner un nombre")){
+function addnumber (choosenumber = prompt("Joueur 1 : Choisir un nombre")){
   return parseInt(choosenumber)
 }
 // addnumber();
 
+
+
 function didIWin () { 
- let givenNumber = addnumber();
+  let givenNumber = addnumber();
   if(givenNumber == 22){
     alert("Bravo tu as trouvé le nombre");
     return true
@@ -38,45 +40,51 @@ function gamePlay(){
 }
  // gamePlay();
 
- function VerifierValiditeDuNombre (){  
-  let guessnumber = addnumber();
-  if(0 <= guessnumber && guessnumber <= 50){
-     alert("true");
-     console.log("verifié ok");
-     return true
-   } else { 
-           alert("false")
-          console.log("NC");
-         return VerifierValiditeDuNombre()
-   }
-}  
- // VerifierValiditeDuNombre();
+ 
 
- function didIWin3 () {
-    let nombreDevinerParLeJoueur1 = addnumber();
-    let nombrejoueur2 = prompt("Joueur 2 : Deviner un nombre");
-    NombreDevinerParLeJoueur2 = parseInt(nombrejoueur2);
-    if (nombreDevinerParLeJoueur1 == NombreDevinerParLeJoueur2) {
+ function Joueur2 (nombreDevinerParLeJoueur2 = prompt("Joueur 2 ; Trouver le nombre deviné par le joueur 1")){
+  return parseInt(nombreDevinerParLeJoueur2)
+ }
+ // Joueur2();
+
+function didIWin3 (nombreDevinerParLeJoueur1, nombreDevinerParLeJoueur2) {
+    if (nombreDevinerParLeJoueur1 == nombreDevinerParLeJoueur2) {
             return true
      } else {
            return false
      }
   } 
- // didIWin3();
+//  didIWin3();
 
-function game() {
-  while(didIWin3() == false ) {
+function VerifierValiditeDuNombre (nombreDevinerParLeJoueur1){  
+  nombreDevinerParLeJoueur1 = addnumber();
+  if(0 <= nombreDevinerParLeJoueur1 && nombreDevinerParLeJoueur1 <= 50){
+     alert("Correct");
+     console.log("verifié ok");
+     return nombreDevinerParLeJoueur1
+   } else { 
+    alert("Vous avez faux")
+    console.log("NC");
+    return VerifierValiditeDuNombre();
+   
+   }
+}  
+// VerifierValiditeDuNombre();
+
+function game(nombreDevinerParLeJoueur1, nombreDevinerParLeJoueur2) {
+  // VerifierValiditeDuNombre(nombreDevinerParLeJoueur1);
+  nombreDevinerParLeJoueur1 = VerifierValiditeDuNombre(nombreDevinerParLeJoueur1);
+  nombreDevinerParLeJoueur2 = Joueur2(nombreDevinerParLeJoueur2);
+  while(didIWin3(nombreDevinerParLeJoueur1,nombreDevinerParLeJoueur2) == false ) {
   alert("Oups!!! Recommencer à nouveau");
  console.log("Recommnercer")
- 
+ nombreDevinerParLeJoueur2 = Joueur2();
  }
  alert("BRAVO tu as gagné")
  console.log("Fin de jeu");
 
  }
- game(); 
-
- 
+game(); 
 
 </script>   
 </body>
